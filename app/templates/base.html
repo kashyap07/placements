@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html{% block html_attribs %} lang="en"{% endblock %}>
+{%- block html %}
+    
+    <head> 
+    {%- block head %}
+
+        {%- block favicons %}
+        <link type="image/x-icon" href="static/assets/icons/pes_logo.png" rel="shortcut icon">
+        {%- endblock %}
+
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+
+        {%- block meta %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google" content="notranslate">
+        <meta http-equiv="Content-Language" content="en" />
+        {%- endblock %}
+
+        {%- block dependencies %}
+            
+            <link rel="stylesheet" href="static/third/bootstrap/css/bootstrap.min.css" />
+
+            <link rel="stylesheet" href="static/third/font-awesome/css/font-awesome.min.css"/>
+
+            <link rel="stylesheet" href="{{ url_for('static', filename='styles/placements.css')}}"/>
+
+            <script src="static/third/jquery/3.2.1.min.js" type="text/javascript"></script>
+            <script src="static/third/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+        {%- endblock %}
+        
+    {%- endblock %}
+    </head>
+
+    <body>
+    {%- block body %}
+        {%- block navbar %}
+            <div class="header">
+                {%- block menu_action %}
+                {%- endblock %}
+                <div class="logo">
+                    <img class ="icon-logo" src="static/assets/icons/pes_logo.png" alt = ""/>
+                    <span>PES Placements</span>
+                    {%- block dropdown %}
+                    {%- endblock %}
+                </div>
+            </div>
+                {%- block sidebar %}
+                {%- endblock %}
+        {%- endblock %}
+        {%- block content %}
+        {%- endblock %}
+        {%- block scripts %}
+            <script src="{{ url_for('static', filename='js/home.js') }}" type="text/javascript"></script>
+        {%- endblock %}
+    {%- endblock %}
+    </body>
+
+{%- endblock html %}
+</html>

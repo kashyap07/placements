@@ -1,0 +1,5 @@
+This folder is named templates but will contain all the html files.
+Changes - 
+
+1. All the links have - have to be defined without compramizing the server directory structure.
+	-- a. Icon links - presently defined according to the directory structure. Needs to be changed later.

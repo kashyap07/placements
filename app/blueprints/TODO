@@ -1,0 +1,7 @@
+Blueprints and setup files.
+
+ #Note:
+ 	--Blueprints: To add features or to extend the application. Create blueprints in the blueprints folder to make the application modular. Which can later be registered into the application.
+ 		Refer the module already present in the blueprints folder
+
+ 	--In blueprints, the name of the variable used to save/initalize the blueprint should be same as the module name for easy registration or extention of the application. Checkout setup.py to understand why.

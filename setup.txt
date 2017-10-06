@@ -1,0 +1,3 @@
+install flask
+install Flask-assests
+intstall SQL-Lite3
