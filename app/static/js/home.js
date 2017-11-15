@@ -1,4 +1,3 @@
-console.log("hi");
 $('#menu-action').click(function() {
   console.log("hi");
   $('.sidebar').toggleClass('active');

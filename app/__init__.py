@@ -7,9 +7,9 @@ from werkzeug.utils import find_modules, import_string
 
 def create_app(config=None):
 	app = Flask(__name__);
-	"""
+
 	app.config.update(dict(
-		DATABASE=os.path.join(app.root_path, 'placements.db'),
+		#DATABASE=os.path.join(app.root_path, 'placements.db'),
 		DEBUG=True,
 		SECRET_KEY=b'_5#y2L"F4Q8z\n\xec]/',
 		USERNAME='admin',
@@ -17,7 +17,6 @@ def create_app(config=None):
 	))
 	app.config.update(config or {})
 	app.config.from_envvar('PLACEMENT_SETTINGS', silent=True)
-	"""
 	register_blueprints(app)
 	#register_cli(app)
 	#register_teardowns(app)

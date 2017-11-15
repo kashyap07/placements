@@ -1,0 +1,12 @@
+{%- extends "home.html" %}
+{%- block sidebar %}
+<div class="sidebar">
+  <ul>
+  	<li><a href="{{ url_for('views.home') }}" ><i class="fa fa-calendar"></i><span>Overview</span></a></li>
+    <li><a href="{{ url_for('views.notifications') }}" class = "active"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
+    <li><a href="{{ url_for('views.messages') }}"><i class="fa fa-envelope"></i><span>Messages</span></a></li>
+    <li><a href="{{ url_for('views.comp_timeline') }}"><i class="fa fa-briefcase"></i><span>Company Timeline</span></a></li>
+</div>
+{%- endblock %}
+{%- block content %}
+{%- endblock %}
