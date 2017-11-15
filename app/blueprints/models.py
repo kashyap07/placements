@@ -28,11 +28,9 @@ def init_db():
 
 def populate_db(path):
 	db = get_db()
-	print("hi")
 	with open(path+'Student.csv','rt') as fin:
 		dr = csv.DictReader(fin)
 		to_db = [(i['stud_id'], i['name'],i['cgpa'],i['sec_cgpa'],i['prim_cgpa'],i['contact'],i['email'],i['backlogs'],i['dept'],i['password']) for i in dr]
-		print(to_db)
 	db.executemany("INSERT INTO Student(stud_id,name,cgpa,sec_cgpa,prim_cgpa,contact,email,backlogs,dept,password) VALUES (?,?,?,?,?,?,?,?,?,?);", to_db)
 	with open(path+'eligibility.csv','rt') as fin:
 		dr = csv.DictReader(fin)
