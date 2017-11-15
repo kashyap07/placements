@@ -5,3 +5,4 @@ env
 venv
 *.tar.gz
 *.sh
+*.csv
