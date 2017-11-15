@@ -8,8 +8,10 @@ def index():
 	return render_template("index.html");
 
 @views.route("/home")
+@views.route("/overview")
 def home():
-	session['username'] = "John Doe"
+	if not session.get('logged_in'):
+		return redirect(url_for('views.login'));
 	return render_template("home.html", user="John Doe")
 
 @views.route('/login', methods=['GET', 'POST'])
@@ -21,6 +23,7 @@ def login():
 			db = get_db()
 			cur = db.execute('select * from Student where stud_id=(?);',[request.form['username'],])
 			entries = cur.fetchall()
+			print(entries)
 			for entry in entries:
 				if entry[9] == request.form['password']:
 					session['logged_in'] = True
@@ -32,6 +35,13 @@ def login():
 			else :
 				error = "Invalid username"
 	return render_template('login.html', error=error)
+
+@views.route('/logout')
+def logout():
+	session.pop('logged_in', None)
+	session.pop('username',None)
+	flash('You were logged out')
+	return redirect(url_for('views.login'))
 
 @views.route("/profile")
 def profile():

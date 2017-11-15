@@ -1,5 +1,4 @@
 #!/python3
-
 import os
 from flask import Flask, g
 from werkzeug.utils import find_modules, import_string
@@ -44,8 +43,4 @@ app.config.from_envvar('PLACEMENT_SETTINGS', silent=True)
 register_blueprints(app)
 register_cli(app)
 register_teardowns(app)
-with app.app_context():
-	db = get_db()
-	res = db.execute("SELECT name FROM sqlite_master WHERE type='table';")
-	print("Successfully populated the db.",[ x[0] for x in res])
 print(app.root_path, app.template_folder, app.url_map)

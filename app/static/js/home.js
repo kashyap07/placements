@@ -13,6 +13,7 @@ $('#menu-action').click(function() {
   }
 });
 
+/*
 $(".sidebar a").click(function () {
     if(!$(this).hasClass('active')){
       console.log(this);
@@ -21,7 +22,7 @@ $(".sidebar a").click(function () {
     }
     console.log(this);
 });
-
+*/
 // Add hover feedback on menu
 $('#menu-action').hover(function() {
     $('.sidebar').toggleClass('hovered');
