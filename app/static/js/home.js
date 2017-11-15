@@ -26,4 +26,11 @@ $(".sidebar a").click(function () {
 // Add hover feedback on menu
 $('#menu-action').hover(function() {
     $('.sidebar').toggleClass('hovered');
-}); 
+});
+
+
+$('.tab').click(function () {
+  $('.tab').toggleClass('active');
+  $('.tab-content > div').toggleClass('visible').toggleClass('hidden');
+});
+

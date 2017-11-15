@@ -12,13 +12,19 @@ def index():
 def home():
 	if not session.get('logged_in'):
 		return redirect(url_for('views.login'));
-	return render_template("home.html", user="John Doe")
+	return render_template("home.html")
+
+@views.route('/signup', methods=['GET', 'POST'])
+def signup():
+	return render_template('home.html', error=error);
 
 @views.route('/login', methods=['GET', 'POST'])
 def login():
+	print("hello")
 	error = None
 	db = get_db()
 	if request.method == 'POST':
+		print("hi", session.get('logged_in'))
 		if not session.get('logged_in'):
 			db = get_db()
 			cur = db.execute('select * from Student where stud_id=(?);',[request.form['username'],])
@@ -34,6 +40,7 @@ def login():
 					return render_template('login.html', error="Invalid password")
 			else :
 				error = "Invalid username"
+	print(error)
 	return render_template('login.html', error=error)
 
 @views.route('/logout')

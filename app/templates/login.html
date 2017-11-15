@@ -1,14 +1,76 @@
 {% extends "base.html" %}
-{% block content %}
-<h2>Login</h2>
-<form action="{{ url_for('views.login') }}" method=post>
-<dl>
-<dt>Username:
-<dd><input type=text name=username>
-<dt>Password:
-<dd><input type=password name=password>
-<dd><input type=submit value=Login>
-,</dl>
-</form>
-{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}</p>
-{% endblock %}
+{%- block title %} Login / Signup - PES Placements {%- endblock %} 
+{%- block styles %}
+	<link href="{{url_for('static', filename='styles/login.css')}}" rel="stylesheet" />
+{%- endblock %}
+
+{%- block content %}
+ <div class= "row">
+  <div class="form">
+      
+      <ul class="tab-group" >
+        <li class="tab active"><a>Sign Up</a></li>
+        <li class="tab"><a >Log In</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="signup" class ="visible">   
+          <h1>Sign Up</h1>
+          
+          <form action="{{ url_for('views.signup') }}" method=post>
+          
+          <div class="top-row" >
+            <div class="field-wrap">
+              <input type="text" class = "inp-element" required autocomplete="off" placeholder="First Name*"/>
+            </div>
+        
+            <div class="field-wrap">
+              <input type="text" required class = "inp-element" autocomplete="off" placeholder="Last Name*"/>
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <input type="email"required class = "inp-element" autocomplete="off" placeholder="Email Address*"/>
+          </div>
+          
+          <div class="field-wrap">
+
+            <input type="password"required class = "inp-element" autocomplete="off" placeholder="Password*"  />
+          </div>
+          
+          <input type="submit" class="button button-block inp-element" Value="Get Started" style="background-color: #3498DB;"/>
+          </form>
+
+        </div>
+        
+        <div id="login" class="hidden">   
+          <h1>Welcome Back!</h1>
+          
+          <form action="{{ url_for('views.login') }}" method=post>
+          
+            <div class="field-wrap">
+            <input type="username" name=username required class = "inp-element" autocomplete="off" placeholder="Username*" />
+          </div>
+
+          <div class="field-wrap">
+            <input type="password"required name=password class = "inp-element" autocomplete="off" placeholder="Password*"  />
+          </div>
+          
+          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          
+          <input type="submit" class="button button-block inp-element" value="Log In" style="background-color: #3498DB;" />
+          
+          </form>
+
+        </div>
+        
+      </div><!-- tab-content -->
+      
+	</div> <!-- /form -->
+	</div>
+	{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}</p>
+</div>
+
+{%- endblock %}
+
+
