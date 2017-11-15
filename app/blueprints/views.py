@@ -1,5 +1,5 @@
-import os
-from flask import Blueprint, render_template, g, session
+from flask import Flask, Blueprint, request, session, g, redirect, url_for, abort, render_template, flash
+from .models import get_db
 
 views = Blueprint('views', __name__);
 
@@ -12,9 +12,26 @@ def home():
 	session['username'] = "John Doe"
 	return render_template("home.html", user="John Doe")
 
-@views.route("/login")
+@views.route('/login', methods=['GET', 'POST'])
 def login():
-	return render_template("login.html");
+	error = None
+	db = get_db()
+	if request.method == 'POST':
+		if not session.get('logged_in'):
+			db = get_db()
+			cur = db.execute('select * from Student where stud_id=(?);',[request.form['username'],])
+			entries = cur.fetchall()
+			for entry in entries:
+				if entry[9] == request.form['password']:
+					session['logged_in'] = True
+					flash('You were logged in')
+					session['username']=request.form['username']
+					return redirect(url_for('views.home'))
+				else :
+					return render_template('login.html', error="Invalid password")
+			else :
+				error = "Invalid username"
+	return render_template('login.html', error=error)
 
 @views.route("/profile")
 def profile():
