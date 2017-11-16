@@ -1,6 +1,101 @@
-{%- extends "base.html" %}
-
-{%- block title %}{{ 'PES Placements' }}{% endblock %}
-
-{%- block content %}
+{% extends "base.html" %}
+{%- block styles %}
+    <link href="static/styles/index.css" rel="stylesheet">
 {%- endblock %}
+
+{%- block body %}
+    <!-- Navigation -->
+    <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Logo and responsive toggle -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <a id = "logo" class = "navbar-brand" href = "{% if session.get('logged_in') %} {{ url_for('views.home') }}  {% else %} {{ url_for('views.index')}} {% endif %}">
+                <img class ="icon-logo" src="static/assets/icons/pes_logo.png" alt = ""/> <span>PES Placements</span>
+            </a>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Signup</a>
+                    </li>
+                </ul>
+                
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+	<!-- Header -->
+    <header style="background:#1677C4">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>PES Placements Portal</h1>
+                <p>A Platform to manage all your campus placements</p>
+                <a href="#" class="btn btn-primary btn-lg" style="background:#1E346D">Signup Now</a>
+            </div>
+        </div>
+    </header>
+
+	<!-- Intro Section -->
+    <section class="intro" style="background:#3498DB">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                	
+                    <h2 class="section-heading">Completely organize your placements</h2>
+                    <p class="text-light">Get information on the upcoming activity in placements in PES University anytime, 
+                    anywhere. Managing campus placements is not easy. We get that. That's why we built a platform to take care of all your 
+                    needs. Get rid of countless Excel sheets, keep students up-to-date and get instant reports and focus on what matters. 
+                    Spend time on guiding students and building company relations. Get email notifications to a specific set of students. 
+                    Alerts and reminders are automatically sent to all concerned students when any deadline approaches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<!-- Content 1 -->
+    <!--<section class="content" style="background:#1677C4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                	<h3 class="text-light">About</h3>
+                	<p class="lead text-muted"></p>
+                </div>                   
+            </div>
+        </div>
+    </section>-->
+    
+	<!-- Footer -->
+    <footer class="page-footer">
+    
+    	<!-- Contact Us -->
+        <div class="contact" style="background:#1677C4">
+        	<div class="container">
+				<h2 class="section-heading">Contact Us</h2>
+				<p><span class="glyphicon glyphicon-earphone"></span><br> +91 9xxxxxxxxx</p>
+				<p><span class="glyphicon glyphicon-envelope"></span><br> info@pesplacements.com</p>
+        	</div>
+        </div>
+        	
+        <!-- Copyright etc -->
+        <div class="small-print">
+       		<p>Copyright </p>
+        </div>
+        
+    </footer>
+    <!-- Custom Javascript -->
+    <script src="static/js/index.js"></script>
+
+{% endblock %}
