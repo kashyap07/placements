@@ -10,12 +10,15 @@ def index():
 @views.route("/home")
 @views.route("/overview")
 def home():
+
 	if not session.get('logged_in'):
 		return redirect(url_for('views.login'));
+	session['userprofile_pic'] = "/static/assets/images/rain-dp.jpg";
 	return render_template("home.html")
 
 @views.route('/signup', methods=['GET', 'POST'])
 def signup():
+
 	return render_template('home.html', error=error);
 
 @views.route('/login', methods=['GET', 'POST'])
@@ -40,7 +43,9 @@ def login():
 					return render_template('login.html', error="Invalid password")
 			else :
 				error = "Invalid username"
-	print(error)
+
+	if session.get('logged_in'):
+		return redirect(url_for('views.home'));
 	return render_template('login.html', error=error)
 
 @views.route('/logout')
@@ -70,3 +75,7 @@ def comp_timeline():
 
 
 
+
+@views.route('/x')
+def x():
+	return render_template('x.html');
