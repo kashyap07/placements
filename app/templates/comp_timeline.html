@@ -1,12 +1,7 @@
 {%- extends "home.html" %}
-{%- block sidebar %}
-<div class="sidebar">
-  <ul>
-  	<li><a href="{{ url_for('views.home') }}" ><i class="fa fa-calendar"></i><span>Overview</span></a></li>
-    <li><a href="{{ url_for('views.notifications') }}"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
-    <li><a href="{{ url_for('views.messages') }}"><i class="fa fa-envelope"></i><span>Messages</span></a></li>
-    <li><a href="{{ url_for('views.comp_timeline') }}"  class = "active"><i class="fa fa-briefcase"></i><span>Company Timeline</span></a></li>
-</div>
-{%- endblock %}
 {%- block content %}
+	<script>
+		$(".sidebar a").removeClass("active");
+		$("#comp_timeline").addClass("active");
+	</script>
 {%- endblock %}
