@@ -12,7 +12,7 @@ def home():
 	if not session.get('logged_in'):
 		return redirect(url_for('views.login'));
 	session['userprofile_pic'] = "/static/assets/images/rain-dp.jpg";
-	return render_template("home.html")
+	return render_template("notifications.html")
 
 @views.route('/signup', methods=['GET', 'POST'])
 def signup():
