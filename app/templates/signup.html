@@ -9,16 +9,15 @@
   <div class="form">
       
       <ul class="tab-group" >
-        <li class="tab"><a>Sign Up</a></li>
-        <li class="tab active"><a >Log In</a></li>
+        <li class="tab active"><a>Sign Up</a></li>
+        <li class="tab"><a >Log In</a></li>
       </ul>
       
       <div class="tab-content">
-        <div id="signup" class ="hidden">   
+        <div id="signup" class ="visible">   
           <h1>Sign Up</h1>
           
           <form action="{{ url_for('views.signup') }}" method=post>
-          
           
           <div class="field-wrap">
               <input type="text" required name="username" maxlength="20" class = "inp-element" autocomplete="off" placeholder=" Username*"/>
@@ -55,7 +54,7 @@
           </div>
 
           <div class="field-wrap">
-              <input type="number" required name="backlogs"  step="1" min = "0" max="5" class = "inp-element" autocomplete="off" placeholder="No. of backlogs*"/>
+              <input type="number" required name="backlogs"  step="1" min = "0" max="5" class = "inp-element" autocomplete="off" placeholder=" No. of backlogs*"/>
           </div>
 
           <div class="field-wrap">
@@ -74,7 +73,7 @@
 
         </div>
         
-        <div id="login" class="visible">   
+        <div id="login" class="hidden">   
           <h1>Welcome Back!</h1>
           
           <form action="{{ url_for('views.login') }}" method=post>

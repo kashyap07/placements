@@ -29,7 +29,7 @@
                         <a href="{{ url_for('views.login') }}">Login</a>
                     </li>
                     <li>
-                        <a href="{{ url_for('views.login') }}">Signup</a>
+                        <a href="{{ url_for('views.signup') }}">Signup</a>
                     </li>
                 </ul>
                 
@@ -43,7 +43,7 @@
             <div class="header-content-inner">
                 <h1>PES Placements Portal</h1>
                 <p>A Platform to manage all your campus placements</p>
-                <a href="#" class="btn btn-primary btn-lg" style="background:#1E346D">Signup Now</a>
+                <a href="{{ url_for('views.signup')}}" class="btn btn-primary btn-lg" style="background:#1E346D">Signup Now</a>
             </div>
         </div>
     </header>

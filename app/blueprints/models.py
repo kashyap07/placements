@@ -6,6 +6,36 @@ import sqlite3
 import csv
 
 models = Blueprint('models', __name__);
+
+class User:
+
+	username = None
+	name = None
+	cgpa = None
+	sec_cgpa = None
+	prim_cgpa = None
+	contact = None
+	email = None
+	backlogs = None
+	dept = None
+	#password = None
+
+
+	def __init__(self, data):
+		self.username = data[0]
+		self.name = data[1]
+		self.cgpa = data[2]
+		self.sec_cgpa = data[3]
+		self.prim_cgpa = data[4]
+		self.contact = data[5]
+		self.email = data[6]
+		self.backlogs = data[7]
+		self.dept = data[8]
+		#self.password = data[9]
+
+class POfficer:
+	pass
+
 def connect_db():
     """Connects to the specific database."""
     rv = sqlite3.connect(current_app.config['DATABASE'])

@@ -1,6 +1,6 @@
 {%- extends "base.html" %}
 
-{%- block title %}{{ 'Home - ' + session['username']  }}{% endblock %}
+{%- block title %}{{ 'Home - ' + session['user'].name  }}{% endblock %}
   
 {%- block menu_action %}
   <a href="#" id="menu-action">
@@ -12,17 +12,13 @@
    	<div class="dropdown pull-right">
        <a class="dropdown-toggle dd" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
         <!-- The Profile picture inserted via div class below, with shaping provided by Bootstrap -->
-        <div class="img-profile"><span>{{ session['username'] }}</span><img class = "dp-icon img-circle" src = "/static/assets/images/rain-dp.jpg">
+        <div class="img-profile"><span>{{ session['user'].name }}</span><img class = "dp-icon img-circle" src = "/static/assets/images/rain-dp.jpg">
       	<span class="fa fa-angle-down white"></span>
       	</div>
        </a>
       <ul class="dropdown-menu">
           <li>
             <a href="{{ url_for('views.profile') }}">Profile</a>
-          </li>
-          <li role="separator" class="divider"></li>
-          <li>
-            <a href="#">Settings</a>
           </li>
           <li role="separator" class="divider"></li>
           <li>
@@ -34,14 +30,8 @@
 {%- block sidebar %}
 <div class="sidebar">
   <ul>
-  	<li><a href="{{ url_for('views.home') }}" class = "active"><i class="fa fa-calendar"></i><span>Overview</span></a></li>
-    <li><a href="{{ url_for('views.notifications') }}"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
-    <li><a href="{{ url_for('views.messages') }}"><i class="fa fa-envelope"></i><span>Messages</span></a></li>
-    <li><a href="{{ url_for('views.comp_timeline') }}"><i class="fa fa-briefcase"></i><span>Company Timeline</span></a></li>
+    <li><a id="notifications" href="{{ url_for('views.notifications') }}" class = "active"><i class="fa fa-bell"></i><span>Notifications</span></a></li>
+    <li><a id="messages" href="{{ url_for('views.messages') }}"><i class="fa fa-envelope"></i><span>Messages</span></a></li>
+    <li><a id="comp_timeline" href="{{ url_for('views.comp_timeline') }}"><i class="fa fa-briefcase"></i><span>Company Timeline</span></a></li>
 </div>
-{%- endblock %}
-
-
-{%- block content %}
-  {%- include "overview.html" %}
 {%- endblock %}
