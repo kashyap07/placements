@@ -1,4 +1,81 @@
 {%- extends "home.html" %}
-
+{%- block styles %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/profile_picture.css') }}"/>
+{%- endblock %}
 {%- block content %}
+	<div class="main">
+  <div class="hipsum">
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row top-bottom-buffer">
+				<div class="col text-center"><h1 class="page-header profile-heading"> Profile</h1>
+				 </div>
+			</div>
+			<div class = "table-content">
+			<table class="table text-centered table-layout">
+				<tr>
+					<td class="left-column">
+						Username
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td>
+						<asp:Label ID="ID0" runat="server" Text='<%# Bind("ID") %>' />
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Name
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td>
+						<asp:Label ID="Name0" runat="server" Text='<%# Bind("Name") %>' />
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Email Id
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td>
+						<asp:Label ID="Age0" runat="server" Text='<%# Bind("Age") %>' />
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						CGPA
+					</td>
+					<td>
+						:
+					</td>
+					<td>
+						<asp:Label ID="Height0" runat="server" Text='<%# Bind("Height") %>' />
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Education
+					</td>
+					<td>
+						:
+					</td>
+					<td>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<button class="btn btn-primary edit-btn">Edit</button>
+
+			<div class="row top-bottom-buffer">
+					<div class="col text-center"><h1 class="page-header profile-heading"> Change Password</h1></div>
+			</div>
+		</div>
+	  </div>
+	</div>
+</div>
 {%- endblock %}

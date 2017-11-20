@@ -208,18 +208,47 @@ p {
 	color:white;
 }
 
+#profile-pic {
+  margin: 0px auto;
+  width: 200px;
+  height:250px;
+  border-radius: 10px;
+}
+
+/* End of my additions */
+
+
+/* Profile sytling */
+.jumbotron h1.page-header {
+    padding-bottom:10px;
+    border-width: 1px;
+    border-color: #aaa;  
+}
+
+.profile-heading {
+    font-family:Lato;
+    font-weight: 300;
+    text-transform: uppercase;
+
+}
+
+.row.top-bottom-buffer{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .left-column
 {
     text-align: right;
-    font-weight: bold;
 }
 .center-column {
   width: 30px;
 }
 .table-layout{
+  margin-bottom:20px;
   text-align: center;
   font-size: 22px;
-  font-weight: 200;
+  font-weight: 300;
   table-layout: fixed;
   font-family: 'Lato';
 }
@@ -233,27 +262,9 @@ p {
   padding:20px;
 }
 
-.hr {
-  margin: 0px auto;
-  width:50%;
-}
-hr.style { 
-  border: 0; 
-  height: 2px; 
-  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
-}
 
-#profile-pic {
-  margin: 0px auto;
-  width: 200px;
-  height:250px;
-  border-radius: 10px;
-}
 
-/* End of my additions */
+/* End of profile styling */
 @-webkit-keyframes swing {
   20% {
     -webkit-transform: rotate3d(0, 0, 1, 15deg);
