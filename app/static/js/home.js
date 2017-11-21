@@ -34,3 +34,10 @@ $('.tab').click(function () {
   $('.tab-content > div').toggleClass('visible').toggleClass('hidden');
 });
 
+
+/*Profile seciton */
+
+
+/*End of profile section*/
+
+  

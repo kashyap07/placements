@@ -1,0 +1,147 @@
+{%- extends "home.html" %}
+{%- block styles %}
+{%- endblock %}
+{%- block content %}
+<div class="main">
+  <div class="hipsum">
+	<div class="jumbotron">
+		<div class="container">
+			<form action="{{ url_for('profile.profile_save')}}" method="post">
+			<div class="row top-bottom-buffer">
+				<div class="col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 text-center"><h1 class="page-header profile-heading"> Profile</h1>
+				 </div>
+			</div>
+			
+			<div class="row bottom-buffer">
+				<div class = "table-content">
+				<table class="table text-centered table-layout">
+				<tr>
+					<td class="left-column">
+						Full &nbsp Name
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<input type="text" required name="name" maxlength="60" class = "inp-element" autocomplete="off" value="{{ session['user'].name}}"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Department
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<div class="field-wrap">
+			              <select id = "dept" name="dept" required>
+			                <option value="">Choose Department</option>
+			                <option id="CS" value="CS">Computer Science Engineering</option>
+			                <option id="IS" value="IS">Information Science Engineering</option>
+			                <option id="ME" value="ME">Mechanical Engineering</option>
+			                <option id="EEE" value="EEE">Electrical Engineering</option>
+			                <option id="EC" value="EC">Electronic Engineering</option>
+			              </select>
+			          </div>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						CGPA
+					</td>
+					<td>
+						:
+					</td>
+					<td class = "right-column">
+						 <input type="number" required name="cgpa" step = "0.01" step = "0.1" max="10" min="0" class = "inp-element" autocomplete="off" value="{{ session['user'].cgpa }}"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						PU &nbsp CGPA
+					</td>
+					<td>
+						:
+					</td>
+					<td class = "right-column">
+						 <input type="number" required name="sec_cgpa" step = "0.01" class = "inp-element" autocomplete="off" value="{{session['user'].sec_cgpa}}"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						X &nbsp CGPA
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<input type="number" required name="prim_cgpa" step = "0.01" max="10" min="0" class = "inp-element" autocomplete="off" value="{{session['user'].prim_cgpa}}"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Backlogs
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<input type="number" required name="backlogs"  step="1" min = "0" max="5" class = "inp-element" autocomplete="off" value="{{session['user'].backlogs}}"/>
+					</td>
+				</tr>
+				</table>
+				</div>
+			</div>
+			<div class="row top-bottom-buffer">
+				<div class="col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 text-center"><h1 class="page-header profile-heading"> Account</h1></div>
+			</div>
+			<div class="row bottom-buffer">
+				<div class = "table-content">
+				<table class="table text-centered table-layout">
+				<tr>
+					<td class="left-column">
+						Username
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<span id="username" class="account-data">{{ session['user'].username }}</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Email Id
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<input type="email"required name="email" class = "inp-element" autocomplete="off" value="{{session['user'].email}}"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Contact No
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<input type="text" required name="contact" minlength="10" maxlength="10" class = "inp-element" autocomplete="off" value="{{session['user'].contact}}"/>
+					</td>
+				</tr>
+				</table>
+				</div>
+				<input  type="submit" id ="profile-edit" value="Save" class="save btn btn-primary edit-btn"/>
+			</form>
+		 	</div>	
+		</div>
+	  </div>
+	</div>
+</div>
+	<script>
+		$("select option[value='{{session['user'].dept}}']").attr("selected","selected");
+	</script>
+{%- endblock %}

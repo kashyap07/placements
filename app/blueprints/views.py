@@ -25,7 +25,6 @@ def signup():
 			message = "username or Email id already registered"
 		else:
 			data = request.form
-			print(data)
 			to_db = [data['username'], data['name'], data['cgpa'], data['sec_cgpa'], data['prim_cgpa'], data['contact'], data['email'], data['backlogs'], data['dept'], data['password']]
 			print("new_1")
 			db.execute("INSERT INTO Student(stud_id,name,cgpa,sec_cgpa,prim_cgpa,contact,email,backlogs,dept,password) VALUES (?,?,?,?,?,?,?,?,?,?);",tuple(to_db))
@@ -87,10 +86,3 @@ def messages():
 @views.route("/comp_timeline")
 def comp_timeline():
 	return render_template("comp_timeline.html")
-
-
-
-
-@views.route('/x')
-def x():
-	return render_template('x.html');

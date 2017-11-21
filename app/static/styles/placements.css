@@ -237,12 +237,25 @@ p {
   padding-bottom: 20px;
 }
 
+.row.bottom-buffer{
+  padding-bottom: 50px;
+}
+
+.row.top-buffer{
+  padding-top:20px;
+}
+
 .left-column
 {
     text-align: right;
 }
 .center-column {
   width: 30px;
+}
+
+.right-column
+{
+  text-align: left;
 }
 .table-layout{
   margin-bottom:20px;
@@ -262,6 +275,9 @@ p {
   padding:20px;
 }
 
+.profile-data, .account-data {
+  font-weight: 400;
+}
 
 
 /* End of profile styling */

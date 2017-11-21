@@ -1,49 +1,38 @@
 {%- extends "home.html" %}
 {%- block styles %}
-	<link rel="stylesheet" href="{{ url_for('static', filename='styles/profile_picture.css') }}"/>
 {%- endblock %}
 {%- block content %}
-	<div class="main">
+<div class="main">
   <div class="hipsum">
 	<div class="jumbotron">
 		<div class="container">
 			<div class="row top-bottom-buffer">
-				<div class="col text-center"><h1 class="page-header profile-heading"> Profile</h1>
+				<div class="col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 text-center"><h1 class="page-header profile-heading"> Profile</h1>
 				 </div>
 			</div>
-			<div class = "table-content">
-			<table class="table text-centered table-layout">
+			<div class="row bottom-buffer">
+				<div class = "table-content">
+				<table class="table text-centered table-layout">
 				<tr>
 					<td class="left-column">
-						Username
+						Full &nbsp Name
 					</td>
 					<td class = "center-column">
 						:
 					</td>
-					<td>
-						<asp:Label ID="ID0" runat="server" Text='<%# Bind("ID") %>' />
+					<td class = "right-column">
+						<span id="name" class="profile-data">{{session['user'].name}}</span>
 					</td>
 				</tr>
 				<tr>
 					<td class="left-column">
-						Name
+						Department
 					</td>
 					<td class = "center-column">
 						:
 					</td>
-					<td>
-						<asp:Label ID="Name0" runat="server" Text='<%# Bind("Name") %>' />
-					</td>
-				</tr>
-				<tr>
-					<td class="left-column">
-						Email Id
-					</td>
-					<td class = "center-column">
-						:
-					</td>
-					<td>
-						<asp:Label ID="Age0" runat="server" Text='<%# Bind("Age") %>' />
+					<td class = "right-column">
+						<span id="dept" class="profile-data">{{session['user'].dept}}</span>
 					</td>
 				</tr>
 				<tr>
@@ -53,27 +42,126 @@
 					<td>
 						:
 					</td>
-					<td>
-						<asp:Label ID="Height0" runat="server" Text='<%# Bind("Height") %>' />
+					<td class = "right-column">
+						<span id="cgpa" class="profile-data">{{session['user'].cgpa}}</span>
 					</td>
 				</tr>
 				<tr>
 					<td class="left-column">
-						Education
+						PU &nbsp CGPA
 					</td>
 					<td>
 						:
 					</td>
-					<td>
+					<td class = "right-column">
+						<span id="sec_cgpa" class="profile-data">{{session['user'].sec_cgpa}}</span>
 					</td>
 				</tr>
-			</table>
-		</div>
-		<button class="btn btn-primary edit-btn">Edit</button>
-
-			<div class="row top-bottom-buffer">
-					<div class="col text-center"><h1 class="page-header profile-heading"> Change Password</h1></div>
+				<tr>
+					<td class="left-column">
+						X &nbsp CGPA
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<span id="prim_cgpa" class="profile-data">{{session['user'].prim_cgpa}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Backlogs
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<span id="backlogs" class="profile-data">{{session['user'].backlogs}}</span>
+					</td>
+				</tr>
+				</table>
+				</div>
 			</div>
+			<div class="row top-bottom-buffer">
+				<div class="col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 text-center"><h1 class="page-header profile-heading"> Account</h1></div>
+			</div>
+			<div class="row bottom-buffer">
+				<div class = "table-content">
+					<table class="table text-centered table-layout">
+				<tr>
+					<td class="left-column">
+						Username
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<span id="username" value="{{ session['user'].username }}"class="account-data">{{ session['user'].username }}</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Email Id
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<span id="email" value="{{ session['user'].email }}" class="account-data editable">{{session['user'].email}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						Contact No
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<span id="contact" value="{{ session['user'].contact }}" class="account-data editable">{{session['user'].contact}}</span>
+					</td>
+				</tr>
+				</table>
+				</div>
+				<form action="{{ url_for('profile.profile_edit') }}" method="get">
+					<input  type="submit" id ="profile-edit" value="Edit" class="save btn btn-primary edit-btn"/>
+				</form>
+			</div>
+			<div class="row top-bottom-buffer">
+				<div class="col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 text-center"><h1 class="page-header profile-heading"> Change Password</h1></div>
+			</div>
+			<div class="row bottom-buffer">
+				<div class = "table-content">
+				<form action="{{ url_for('profile.change_password')}}" method="post">
+				<table class="table text-centered table-layout">
+				<tr>
+					<td class="left-column">
+						Old &nbsp Password
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<input type="password" id="opasswd" name="opasswd" class="password-data" />
+					</td>
+				</tr>
+				<tr>
+					<td class="left-column">
+						New &nbsp Password
+					</td>
+					<td class = "center-column">
+						:
+					</td>
+					<td class = "right-column">
+						<input type="password" id="npasswd" name="npasswd" class="password-data" />
+					</td>
+				</tr>
+				</table>
+					<input  type="submit" id ="change-passwd" value="Change" class="btn btn-primary edit-btn"/>
+				</form>
+				</div>
+			</div>
+			
 		</div>
 	  </div>
 	</div>
