@@ -69,9 +69,11 @@ def logout():
 	flash('You were logged out')
 	return redirect(url_for('views.login'))
 
+
 @views.route("/profile")
 def profile():
 	return render_template("profile.html")
+
 
 @views.route("/notifications")
 def notifications():
